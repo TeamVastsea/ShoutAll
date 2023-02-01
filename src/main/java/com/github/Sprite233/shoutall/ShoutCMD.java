@@ -10,6 +10,7 @@ import net.md_5.bungee.api.plugin.Command;
 
 import java.util.UUID;
 
+@SuppressWarnings("ALL")
 public class ShoutCMD extends Command {
     public ShoutCMD(String name, String permission, String... aliases) {
         super(name, permission, aliases);
@@ -18,14 +19,14 @@ public class ShoutCMD extends Command {
     @Override
     public void execute(CommandSender sender, String[] args) {
         if (!(sender instanceof ProxiedPlayer)) {
-            sender.sendMessage("§c后台不能使用此命令!");
+            sender.sendMessage("§b瀚海§8>> §c后台不能使用此命令!");
             return;
         }
 
         ProxiedPlayer player = (ProxiedPlayer) sender;
 
         if (args.length == 0) {
-            player.sendMessage("§c信息不能为空!");
+            player.sendMessage("§b瀚海§8>> §c信息不能为空!");
             return;
         }
 
@@ -34,10 +35,10 @@ public class ShoutCMD extends Command {
         long now = System.currentTimeMillis() / 1000;
         int time = 180 - (int) (now - before);
         if (time > 0) {
-            player.sendMessage("§c喊话冷却中... " + time + "秒");
+            player.sendMessage("§b瀚海§8>> §c喊话冷却中... " + time + "秒");
             if (!player.hasPermission("shoutall.bypass"))
                 return;
-            player.sendMessage("§a但你绕过了");
+            player.sendMessage("§b瀚海§8>> §a但你绕过了");
         }
 
         StringBuilder sb = new StringBuilder("§6[喊话] §e");
