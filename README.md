@@ -1,2 +1,2 @@
 # ShoutAll
-## 简易的喊话插件
+## A simple shout plugin.
